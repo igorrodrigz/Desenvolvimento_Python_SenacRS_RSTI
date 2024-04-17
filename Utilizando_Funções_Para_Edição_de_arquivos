@@ -1,0 +1,81 @@
+# Função para adicionar um item ao arquivo
+def adicionar_item(nomeArquivo, nome, valor):
+    # Abrindo o arquivo em modo de adição ('a')
+    with open(nomeArquivo, 'a') as arquivo:
+        # Escrevendo no arquivo o nome e o valor separados por vírgula
+        arquivo.write(nome + "," + valor + "\n")
+        # Imprimindo uma mensagem de sucesso
+        print("Item adicionado com sucesso!")
+
+# Função para listar todos os itens do arquivo
+def listar_itens(nomeArquivo):
+    # Abrindo o arquivo em modo de leitura ('r')
+    with open(nomeArquivo, 'r') as arquivo:
+        # Lendo e imprimindo todo o conteúdo do arquivo
+        print(arquivo.read())
+
+# Função para excluir um item do arquivo
+def excluir_item(nomeArquivo, nomeProcurado):
+    cont = 0
+    auxIndice = 0
+    # Abrindo o arquivo em modo de leitura ('r')
+    with open(nomeArquivo, 'r') as arquivo:
+        linhas = []
+        linhasIndividuais = []
+        # Lendo todas as linhas do arquivo
+        for aux in arquivo:
+            linhas.append(aux)
+        # Dividindo cada linha em nome e valor separados por vírgula
+        for i in range(len(linhas)):
+            linhasIndividuais.append(linhas[i].split(','))
+        # Procurando o índice do item a ser excluído
+        for selecionaLinha in linhasIndividuais:
+            for campo in selecionaLinha:
+                cont += 1
+                if campo == nomeProcurado:
+                    auxIndice = cont
+        # Calculando o índice correto da linha a ser excluída
+        auxIndice = int(((auxIndice + 1) / 2) - 1)
+        # Excluindo o item da lista de linhas
+        del linhasIndividuais[auxIndice]
+
+    # Reescrevendo o arquivo sem o item excluído
+    with open(nomeArquivo, 'w') as arquivo:
+        for i in range(len(linhas) - 1):
+            arquivo.write(linhas[i])
+        # Imprimindo uma mensagem de sucesso
+        print("Item deletado com sucesso!")
+
+# Função para atualizar um item no arquivo
+def atualizar_item(nomeArquivo, indice, nome, valor):
+    # Abrindo o arquivo em modo de leitura ('r')
+    with open(nomeArquivo, 'r') as arquivo:
+        # Lendo todas as linhas do arquivo
+        linhas = arquivo.readlines()
+    # Verificando se o índice é válido
+    if 0 <= indice <= len(linhas):
+        # Atualizando a linha no índice especificado com o novo nome e valor
+        linhas[indice] = f"{nome},{valor}\n"
+        # Reescrevendo o arquivo com as alterações
+        with open(nomeArquivo, 'w') as arquivo:
+            arquivo.writelines(linhas)
+        # Imprimindo uma mensagem de sucesso
+        print("Item atualizado com sucesso!")
+    else:
+        # Imprimindo uma mensagem de erro para índice inválido
+        print("Índice inválido.")
+
+# Adicionando alguns itens ao arquivo de teste
+adicionar_item("teste.txt", "Eduardo", "10")
+adicionar_item("teste.txt", "Paulo", "10")
+adicionar_item("teste.txt", "Patrão Bruce", "9")
+adicionar_item("teste.txt", "Ronald", "7")
+
+# Excluindo um item do arquivo de teste
+excluir_item("teste.txt", "Ronald")
+
+# Atualizando um item no arquivo de teste
+atualizar_item("teste.txt", 0, "Patati", "7")
+
+# Listando todos os itens do arquivo de teste (comentado para não executar)
+# listar_itens("teste.txt")
