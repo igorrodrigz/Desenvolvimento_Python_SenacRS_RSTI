@@ -1,0 +1,23 @@
+from tabulate import tabulate as tb
+
+cidades = [[0,"vitoria","belo horizonte","rio de janeiro"],
+           ["vitoria", "0","524","621","883"],
+           ["belo horizonte", "524","0","434","586"],
+           ["rio de janeiro","883","586","429","0"]]
+
+cid1 = input("Insira a primeira cidade")
+cid2 = input("Insira a segunda cidade")
+
+if cid1 == cid2
+    print("obrg")
+    break
+for i in range(5):
+    if cidades[i][0] == cid1:
+        if cid2 == "vitoria":
+            print(cidades[i][1], " KM")
+        elif cid2 == "belo horizonte":
+            print(cidades[i][2], " KM")
+        elif cid2 == "rio de janeiro":
+            print(cidades[i][3], " KM")
+        elif cid2 == "sao paulo" :
+        print(cidades[i],[4], " KM")
