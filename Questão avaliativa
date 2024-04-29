@@ -1,0 +1,24 @@
+Esse tópico foi desenvolvido para que vocês possam criar as melhores perguntas para a prova de recuperação.
+O conteúdo precisa estar dentro dos tópicos abordados até o momento na disciplina de Python. Cada pergunta 
+selecionada ganha 0,2 pontos na corrida do livro.
+Lembrem-se as perguntas são dissertativas argumentativas! Ou seja, peçam a explicação de coisas com justificativa
+da resposta.
+
+~~~Minha questão~~
+
+
+[Código]
+from collections import deque
+army = deque(["Edward","Alphonse","Roy"])
+army.append("Bradley")
+army.popleft()
+print(army[1])
+
+Ao analisar o código Python fornecido, percebemos que inicialmente há uma importação da classe deque do pacote
+collections, o que facilita a manipulação de uma estrutura de dados conhecida como fila. Descreva o que acontece
+durante a execução do código e, em seguida, forneça o resultado final da aplicação.
+
+~~Resposta da questão~~ 
+Após a importação da classe e coleção, a variável army recebe uma fila contendo os nomes Edward, Alphonse e Roy.
+Em seguida, o nome Bradley é inserido ao final da fila e após, o primeiro nome da fila é removido. O código então
+imprime na tela o segundo nome da fila, sendo este, agora o Roy.
